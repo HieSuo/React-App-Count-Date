@@ -7,8 +7,9 @@ import LineBar from './components/LineBar'
 
 function App() {
   const [modalOpen, setOpenModal] = useState(false);
-  const [fromDate, setFromDate] = useState(new Date(localStorage.getItem('fromDate')) || new Date(2024, 12, 10));
-  const [endDate, setEndDate] = useState(new Date(localStorage.getItem('endDate')) || new Date(2025,0,11));
+
+  const [fromDate, setFromDate] = useState(localStorage.getItem('fromDate')!=null ? new Date(localStorage.getItem('fromDate')) : new Date(2025, 0, 1));
+  const [endDate, setEndDate] = useState(localStorage.getItem('endDate')!=null ? new Date(localStorage.getItem('endDate')) : new Date(2026,0,1));
 
   const [backgroundColor, setBackgroundColor] = useState({from: localStorage.getItem('fromBG')||"#22c1c3", to: localStorage.getItem('endBG')||"#fdbb2d"});
   const [itemColor, setItemColor] = useState({from: localStorage.getItem('itemColorFrom')||"#6CA0DC", to: localStorage.getItem('itemColorTo')||"#FC14DD"});

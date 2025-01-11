@@ -20,17 +20,17 @@ const LineBar = (props) => {
     return Math.floor(dayCount);
   }
   const backgroundGradientCSS ={
-    width: (percentage/100 * 400),
+    width: percentage<100?percentage:100+"%",
     background: "linear-gradient(90deg, " + itemColor.from + " 0%, " + itemColor.to + " 100%)",
   };
   return (
-    <div className='px-2'>
+    <div className='w-screen px-4 md:w-[400px]'>
       <h1 className='text-3xl text-center'>You have been here for {dayPassed()} days</h1>
       <div className='bg-white relative w-full h-2 rounded-2xl'>
-        <div className=' bg-gradient-to-r  h-2 w-full rounded-2xl absolute' style={backgroundGradientCSS}>
+        <div className='bg-gradient-to-r h-2 w-full rounded-2xl absolute' style={backgroundGradientCSS}>
         </div>
       </div>
-      <div className='text-2xl  flex justify-between'>
+      <div className='text-2xl flex justify-between'>
           <p className=''>Form {fromDate.getDate()}/{fromDate.getMonth()+1}/{fromDate.getFullYear()}</p>
           <p>To {endDate.getDate()}/{endDate.getMonth()+1}/{endDate.getFullYear()}</p>
         </div>
