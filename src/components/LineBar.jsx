@@ -19,8 +19,9 @@ const LineBar = (props) => {
     dayCount = dayCount /(1000*60*60*24);
     return Math.floor(dayCount);
   }
+  const lp = percentage<100 ? percentage : 100;
   const backgroundGradientCSS ={
-    width: percentage<100?percentage:100+"%",
+    width:  lp+ "%",
     background: "linear-gradient(90deg, " + itemColor.from + " 0%, " + itemColor.to + " 100%)",
   };
   return (
